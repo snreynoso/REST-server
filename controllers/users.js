@@ -59,13 +59,7 @@ const usersPut = async (req, res = response) => {
 
 const usersDelete = async (req, res = response) => {
     const { userId } = req.params;
-
-    // Full delete
-    //const userDeleted = await User.findByIdAndDelete(userId);
-
-    // Delete by change state
     const userDeleted = await User.findByIdAndUpdate(userId, { state: false });
-
     res.json(userDeleted);
 }
 
